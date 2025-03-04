@@ -18,6 +18,8 @@ chromedriver_autoinstaller.install()
 load_dotenv()
 
 
+
+
 def close_ads():
     time.sleep(2)
     try:
@@ -25,6 +27,10 @@ def close_ads():
         close_button.click()
     except NoSuchElementException:
         pass
+
+
+os.environ["PATH"] += os.pathsep + os.getenv("GOOGLE_CHROME_BIN", "/usr/bin/chromium")
+os.environ["PATH"] += os.pathsep + os.getenv("CHROMEDRIVER_PATH", "/usr/bin/chromedriver")
 
 
 chrome_options = webdriver.ChromeOptions()
